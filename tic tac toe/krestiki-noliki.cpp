@@ -15,6 +15,7 @@ int cell1 = SecondFigure;
 #define RED "\033[31m"
 #define BLUE "\033[34m"
 #define ARMYAN "\033[36m"
+#define White  "\033[0m" 
 string crossColor;
 string circleColor;
 
@@ -106,7 +107,7 @@ bool WinConditionX() {
     }
     return false;
 }
-//смена крестика и нолика не работает , потому что я дурачёк и не понял как её нормально сделат(((
+
 void Settings() {
     cout << "[1]Выбрать цвет крестика \n";
     cout << "[2]Выбрать цвет Нолика \n";
@@ -214,18 +215,6 @@ void ProverkaX() {
     }
 }
 
-void draw() {
-    for (cell = 0; cell <= 9; cell++) {
-        for (cell1 = 0; cell1 <= 9; cell1++) {
-            if (cells[cell - 1] == 'x') {
-                cout << crossColor + cells[cell - 1] << " ";
-            }
-            else if (cells[cell1 - 1] == 'O') {
-                cout << circleColor + cells[cell - 1] << " ";
-            }
-        }
-    }
-}
 
 void Startmenu() {
     clear();
@@ -260,24 +249,24 @@ void Startmenu() {
 
             while (!WinConditionX()) {
                 for (int o = 0; o <= 9; o++) {
-                    void draw();
                     if (player_figure == 'x') {
                         cout << "Введите номер клетки, куда ходить  X: ";
                         cin >> cell;
                         while (cells[cell - 1] == 'x' || cells[cell - 1] == 'O') {
+                          
                             cout << "Введите номер клетки, куда ходить  X: ";
                             cin >> cell;
                         }
                         cells[cell - 1] = 'x';
+                    
                         clear();
-                        cout << "-" << cells[0] << "-" << '|' << "-" << cells[1] << "-" << '|' << "-" << cells[2] << "-" << " |" << endl;
-                        cout << "-" << cells[3] << "-" << '|' << "-" << cells[4] << "-" << '|' << "-" << cells[5] << "-" << " |" << endl;
-                        cout << "-" << cells[6] << "-" << '|' << "-" << cells[7] << "-" << '|' << "-" << cells[8] << "-" << " |" << "\n" << endl;
+                        cout << "-" << crossColor << cells[0] << White << "-" << '|' << "-" << crossColor << cells[1] << White << "-" << '|' << "-" << crossColor << cells[2] << White << "-" << " |" << endl;
+                        cout << "-" << crossColor << cells[3] << White << "-" << '|' << "-" << crossColor << cells[4] << White << "-" << '|' << "-" << crossColor << cells[5] << White << "-" << " |" << endl;
+                        cout << "-" << crossColor << cells[6] << White << "-" << '|' << "-" << crossColor << cells[7] << White << "-" << '|' << "-" << crossColor << cells[8] << White << "-" << " |" << "\n" << endl;
                         WinConditionX();
                         switchTurn();
 
-
-
+                      
                         cout << "Введите номер клетки, куда ходить 0: ";
                         cin >> cell1;
                         while (cells[cell1 - 1] == 'x' || cells[cell1 - 1] == 'O') {
@@ -286,25 +275,27 @@ void Startmenu() {
                         }
                         cells[cell1 - 1] = 'O';
                         clear();
-                        cout << "-" << cells[0] << "-" << '|' << "-" << cells[1] << "-" << '|' << "-" << cells[2] << "-" << " |" << endl;
-                        cout << "-" << cells[3] << "-" << '|' << "-" << cells[4] << "-" << '|' << "-" << cells[5] << "-" << " |" << endl;
-                        cout << "-" << cells[6] << "-" << '|' << "-" << cells[7] << "-" << '|' << "-" << cells[8] << "-" << " |" << "\n" << endl;
+                        cout << "-" << circleColor << cells[0] << White << "-" << '|' << "-" << circleColor << cells[1] << White << "-" << '|' << "-" << circleColor << cells[2] << White << "-" << " |" << endl;
+                        cout << "-" << circleColor << cells[3] << White << "-" << '|' << "-" << circleColor << cells[4] << White << "-" << '|' << "-" << circleColor << cells[5] << White << "-" << " |" << endl;
+                        cout << "-" << circleColor << cells[6] << White << "-" << '|' << "-" << circleColor << cells[7] << White << "-" << '|' << "-" << circleColor << cells[8] << White << "-" << " |" << "\n" << endl;
                         WinConditionX();
                         switchTurn();
                     }
                     else {
-                        void draw();
+                    
                         cout << "Введите номер клетки, куда ходить 0: ";
                         cin >> cell1;
-                        while (cells[cell1 - 1] == 'x' || cells[cell1 - 1] == 'O') {                  
+                        while (cells[cell1 - 1] == 'x' || cells[cell1 - 1] == 'O') {    
+                       
                             cout << "Введите номер клетки, куда ходить  O: ";
                             cin >> cell;
                         }
                         cells[cell1 - 1] = 'O';
+                 
                         clear();
-                        cout << "-" << cells[0] << "-" << '|' << "-" << cells[1] << "-" << '|' << "-" << cells[2] << "-" << " |" << endl;
-                        cout << "-" << cells[3] << "-" << '|' << "-" << cells[4] << "-" << '|' << "-" << cells[5] << "-" << " |" << endl;
-                        cout << "-" << cells[6] << "-" << '|' << "-" << cells[7] << "-" << '|' << "-" << cells[8] << "-" << " |" << "\n" << endl;
+                        cout << "-" << circleColor << cells[0] << White << "-" << '|' << "-" << circleColor << cells[1] << White << "-" << '|' << "-" << circleColor << cells[2] << White << "-" << " |" << endl;
+                        cout << "-" << circleColor << cells[3] << White << "-" << '|' << "-" << circleColor << cells[4] << White << "-" << '|' << "-" << circleColor << cells[5] << White << "-" << " |" << endl;
+                        cout << "-" << circleColor << cells[6] << White << "-" << '|' << "-" << circleColor << cells[7] << White << "-" << '|' << "-" << circleColor << cells[8] << White << "-" << " |" << "\n" << endl;
                         WinConditionX();
                         switchTurn();
 
@@ -316,9 +307,9 @@ void Startmenu() {
                         }
                         cells[cell - 1] = 'x';
                         clear();
-                        cout << "-" << cells[0] << "-" << '|' << "-" << cells[1] << "-" << '|' << "-" << cells[2] << "-" << " |" << endl;
-                        cout << "-" << cells[3] << "-" << '|' << "-" << cells[4] << "-" << '|' << "-" << cells[5] << "-" << " |" << endl;
-                        cout << "-" << cells[6] << "-" << '|' << "-" << cells[7] << "-" << '|' << "-" << cells[8] << "-" << " |" << "\n" << endl;
+                        cout << "-" << crossColor << cells[0] << White << "-" << '|' << "-" << crossColor << cells[1] << White << "-" << '|' << "-" << crossColor << cells[2] << White << "-" << " |" << endl;
+                        cout << "-" << crossColor << cells[3] << White << "-" << '|' << "-" << crossColor << cells[4] << White << "-" << '|' << "-" << crossColor << cells[5] << White << "-" << " |" << endl;
+                        cout << "-" << crossColor << cells[6] << White << "-" << '|' << "-" << crossColor << cells[7] << White << "-" << '|' << "-" << crossColor << cells[8] << White << "-" << " |" << "\n" << endl;
                         WinConditionX();
                         switchTurn();
                     }
